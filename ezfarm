@@ -1,0 +1,15 @@
+local Players = game:GetService("Players")
+local PlayerNames = {"Amartiaaa", "yt_xindragon", "GodStrength666"}
+
+Players.PlayerAdded:Connect(function(player)
+    for _, playerName in ipairs(PlayerNames) do
+        if player.Name == playerName then
+            player.CharacterAdded:Connect(function(character)
+                wait(2)
+                local displayName = player.DisplayName or player.Name
+                player:Kick("A GOD named " .. displayName .. " joined the game.")
+            end)
+            break
+        end
+    end
+end)
